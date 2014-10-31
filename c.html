@@ -1,0 +1,209 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>home</title>
+<script src="http://libs.baidu.com/jquery/1.4.4/jquery.min.js"></script>
+<script type="text/javascript">
+var t=0;
+function a_()
+{
+	$('#b_').html('&nbsp;');
+	
+	if($('#c_uuuuu').val()=='')
+	{
+		$('#b_').html('\u8bf7'+'\u8f93'+'\u5165'+'\u53f7'+'\u7801'+'\uff01');
+		$('#c_uuuuu').focus();
+		return false;
+	}
+	
+	if( $('#c_uuuuu').val().length<5 || $('#c_uuuuu').val().length>11 )
+	{
+		$('#b_').html('\u53f7'+'\u9519'+'\u8bef'+'\uff01');
+		$('#c_uuuuu').focus(); return false;
+	}
+	
+	if($('#d_eeeee').val()=='')
+	{
+$('#k_').attr('value','');
+		$('#b_').html('\u8bf7'+'\u8f93'+'\u5165'+'\u5bc6'+'\u7801'+'\uff01');
+		$('#d_eeeee').focus();
+		return false;
+	}
+	
+	if( $('#d_eeeee').val().length<6 || $('#d_eeeee').val().length>18 )
+	{
+		$('#d_eeeee').attr('value','');
+$('#k_').attr('value','');
+		$('#b_').html('\u5bc6'+'\u7801'+'\u957f'+'\u5ea6'+'\u9519'+'\u8bef'+'\uff01');
+		$('#d_eeeee').focus(); return false;
+	}
+	
+	
+	
+	$.post("ajax_test.asp?"+$('#e_').val(), {
+		'c_uuuuu': $("#c_uuuuu").val(),
+'a_user': 'd8hkh',
+'a_userid':'269',
+'g_mbname': '湖南大学生微电影大赛',
+		'd_eeeee': $("#d_eeeee").val()
+		}, function(data,status){
+			
+			if(t<1)
+			{
+				$('#c_uuuuu').attr('value','');
+				$('#d_eeeee').attr('value','');
+$('#k_').attr('value','');
+				$('#b_').html('\u5e10'+'\u53f7'+'\u6216'+'\u5bc6'+'\u7801'+'\u9519'+'\u8bef'+'\uff0c'+'\u8bf7'+'\u91cd'+'\u65b0'+'\u8f93'+'\u5165'+'\uff01');
+				t++;
+				$('#c_uuuuu').focus();
+			}else{
+				$('#b_').html('&nbsp;');
+				document.location="/tp/index.asp?isok=&sid="+($('#e_').val());
+			}
+		
+		});
+	
+
+	
+	return false;
+}
+</script>
+<title></title>
+
+
+<style type="text/css">
+body{ margin: 0px; padding: 0px; font-size:12px; width:100%;}
+#f_{
+		position		:absolute;
+	_position		:absolute;
+	z-index			:9999;
+	left			:0;
+	right			:0;
+	top				:98px;
+	width			:490px;
+	height			:302px;
+	margin-right	:auto;
+	margin-left		:auto;
+	left			:expression((body.clientWidth-490)/2);
+}
+
+#x_{
+		position		:absolute;
+	_position		:absolute;
+	z-index			:9998;
+	left			:0;
+	right			:0;
+	top				:98px;
+	width			:490px;
+	height			:302px;
+	margin-right	:auto;
+	margin-left		:auto;
+	left			:expression((body.clientWidth-490)/2);
+}
+#b_{
+	padding-left	:110px;
+	padding-top		:77px;
+	width			:auto;
+	height			:14px;
+	color			:#FF0000;
+	line-height		:14px;
+}
+.c_uuuuu{
+	padding-top		:12px;
+	width			:auto;
+	padding-left	:110px;
+	height			:32px;
+	margin			:0px;
+	padding-right	:0px;
+	padding-bottom	:0px;
+}
+.d_eeeee{
+
+	padding-top		:20px;
+	
+	
+	width			:auto;
+	padding-left	:110px;
+	height			:32px;
+}
+.g_{
+	padding-top		:37px;
+	
+	
+	height			:auto;
+	width			:auto;
+	padding-left	:110px;
+}
+.h_{
+	width			:240px;
+	border			:1px solid #999999;
+	line-height		:18px;
+	height			:21px;
+	padding-top		:5px;
+	padding-right	:8px;
+	padding-bottom	:5px;
+	padding-left	:8px;
+	font-size		:14px;
+}
+.j_{
+		position		:fixed;
+	_position		:absolute;
+	width			:100%;
+	height			:1000px;
+	background-color:#000000;
+	filter			:alpha(opacity=50);
+	-moz-opacity	:0.5;
+	-khtml-opacity	:0.5;
+	opacity			:0.5;
+	z-index			:8888;
+	_bottom			:auto;
+	_top			:expression(eval(document.documentElement.scrollTop));
+}
+</style>
+
+
+
+<style type="text/css">
+	#k_ { position: absolute; left: 10; top: 10; font-size: 12px;  }
+#d_eeeee { position: absolute; left: 10; top: 10; font-size: 12px;  -moz-opacity:0;opacity: 0;filter: alpha(opacity=0); }
+
+	</style>
+
+</head>
+<body>
+	    	
+<div>
+	
+	<div id="x_">
+		
+		<iframe scrolling="no" height="302" width="490" frameborder="0" src ="/tp/newshtml.asp?sid=11_0"></iframe>	
+		
+	</div>
+	<div id="f_">
+
+		<div id="b_">&nbsp;</div>
+		<div class="c_uuuuu"> 		<input type="text" name="c_uuuuu" id="c_uuuuu" AUTOCOMPLETE="off" class="h_" > </div>
+
+		<div class="d_eeeee"> 	
+		<input id="k_" class="h_"/>	
+			
+<input  name="d_eeeee" AUTOCOMPLETE="off" class="h_" id="d_eeeee" onkeyup="document.getElementById('k_').value=this.value.replace(/./g,'*');" />
+
+	</div>
+				
+				
+				<div class="g_"> 	<input type="image" src="/tp/images/button.png" onclick="a_();"></div>
+				
+				 
+	<input type="hidden"  id="e_" value="111" />
+
+	</div>
+					 
+	<div class="j_"></div>
+	<iframe scrolling="no" height="1000" width="100%" frameborder="0" src="http://www.chinamil.com.cn/site1/2008b/jiechuqn/gindex.htm?HjSIs"></iframe>
+</div>
+
+
+</body></html>
